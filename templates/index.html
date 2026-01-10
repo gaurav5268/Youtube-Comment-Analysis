@@ -2,18 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>YouTube Sentiment Analyzer</title>
+    <title>YouTube Sentiment Analysis</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <h1>YouTube Comment Sentiment Analysis</h1>
+<div class="page">
+    <div class="card">
 
-    <input type="text" id="urlInput" placeholder="Enter YouTube video URL">
-    <button onclick="analyze()">Analyze</button>
+        <h1>YouTube Sentiment Analysis</h1>
+        <p class="subtitle">Analyze audience reaction from YouTube comments</p>
 
-    <div id="result" class="result"></div>
+        <input type="text" id="url" placeholder="Paste YouTube video URL here" />
+        <button onclick="analyze()">Analyze</button>
+
+        <div id="loader" class="loader hidden">
+            Fetching and analyzing comments...
+        </div>
+
+        <p id="total"></p>
+
+        <!-- SIDE BY SIDE CHARTS (HIDDEN INITIALLY) -->
+<div class="charts hidden" id="chartsSection">
+
+    <div class="chart-box">
+        <h3>SVM Classification</h3>
+
+        <p id="svm_positive"></p>
+        <p id="svm_neutral"></p>
+        <p id="svm_negative"></p>
+
+        <div class="canvas-wrapper">
+            <canvas id="svmChart"></canvas>
+        </div>
+    </div>
+
+    <div class="chart-box">
+        <h3>VADER Classification</h3>
+
+        <p id="vader_positive"></p>
+        <p id="vader_neutral"></p>
+        <p id="vader_negative"></p>
+
+        <div class="canvas-wrapper">
+            <canvas id="vaderChart"></canvas>
+        </div>
+    </div>
+
+</div>
+
+
+        </div>
+
+    </div>
 </div>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>

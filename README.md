@@ -4,7 +4,7 @@ This project is an end-to-end NLP web application that analyzes the sentiment of
 It compares a custom-trained Machine Learning model (SVM) with a rule-based sentiment analyzer (VADER) and displays the results side by side.
 
 ---
-
+![alt text](image.png)
 ## Project Overview
 
 The application takes a YouTube video URL as input, fetches comments using the YouTube Data API, and classifies them into Positive, Neutral, and Negative sentiments.
